@@ -9,7 +9,7 @@ const mongodb = require('mongodb')
 
 // const {getRate}= require('./parserRate')
 // const {getForeign} = require('./parserForeign')
-// const {getCommod} = require('./parserCommodities')
+const {getCommod} = require('./parserCommodities')
 const {getIndex} = require('./parserIndex')
 const {getIndexDolar} = require('./parserIndexDolar')
 // const {getCrypto} = require('./parserCrypto')
