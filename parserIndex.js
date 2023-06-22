@@ -53,7 +53,7 @@ async function getIndex (){
     async function dollar(){
         const browser = await puppeteer.launch({headless:'new', 'ignoreDefaultArgs': [ '--enable-automation'] })
         const newPage = await browser.newPage();
-        await newPage.goto('https://ru.tradingview.com/symbols/TVC-DXY/')
+        await newPage.goto('https://ru.tradingview.com/symbols/TVC-DXY/',{timeout: 0})
 
 
         // await newPage.click('didomi-notice-agree-button')
