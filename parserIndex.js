@@ -13,7 +13,7 @@ async function getIndex (){
     async function indexes(){
         const browser = await puppeteer.launch({headless:'new', 'ignoreDefaultArgs': [ '--enable-automation'] })
         const newPage = await browser.newPage();
-        await newPage.goto('https://tradingeconomics.com/stocks')
+        await newPage.goto('https://tradingeconomics.com/stocks',{timeout: 0})
 
 
         // await newPage.click('didomi-notice-agree-button')
