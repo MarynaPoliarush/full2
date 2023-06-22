@@ -11,7 +11,7 @@ const mongodb = require('mongodb')
 // const {getForeign} = require('./parserForeign')
 const {getCommod} = require('./parserCommodities')
 const {getIndex} = require('./parserIndex')
-const {getIndexDolar} = require('./parserIndexDolar')
+// const {getIndexDolar} = require('./parserIndexDolar')
 // const {getCrypto} = require('./parserCrypto')
 // const {getIPO} = require('./parserIPO')
 
@@ -180,13 +180,37 @@ router.get('/index', async (req,res)=>{
     }
 try{
     const fetchedStock = await getIndex();
-    const fethcedIndexDolar = await getIndexDolar()
+   
     console.log(fetchedStock)
     stock.price = fetchedStock.price
     stock.daily = fetchedStock.daily
     stock.weekly = fetchedStock.weekly
 
-    stock.price.push(...fethcedIndexDolar.price)
+    
+}catch(e){
+    console.log(e)
+}
+
+    res.send(stock)
+
+})
+
+
+
+router.get('/indexdolar', async (req,res)=>{
+    console.log('request got index')
+
+    let stock={
+        price:[],
+        daily:[],
+        weekly:[]
+    }
+try{
+   
+    const fethcedIndexDolar = await getIndexDolar()
+    console.log(fethcedIndexDolar)
+    
+    stock.price.push(fethcedIndexDolar.price)
     stock.daily.push(...fethcedIndexDolar.daily)
     stock.weekly.push(...fethcedIndexDolar.weekly)
 
