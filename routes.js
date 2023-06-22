@@ -180,13 +180,14 @@ router.get('/index', async (req,res)=>{
     }
 try{
     const fetchedStock = await getIndex();
-   
+    
     console.log(fetchedStock)
     stock.price = fetchedStock.price
     stock.daily = fetchedStock.daily
     stock.weekly = fetchedStock.weekly
 
-    
+   
+
 }catch(e){
     console.log(e)
 }
