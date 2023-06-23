@@ -123,6 +123,16 @@ router.get('/commodities', async (req,res)=>{
             'TTF Gas':'', 
             'Gold':'',
             'Electricity GER':''
+        },
+        longerChanges:{
+            'Crude Oil':'', 
+            'Brent Oil':'', 
+            'Urals Oil':'',
+            'Natural gas':'',
+            "Coal":'',
+            'TTF Gas':'', 
+            'Gold':'',
+            'Electricity GER':''
         }
     }
         
@@ -158,8 +168,19 @@ router.get('/commodities', async (req,res)=>{
     commoditiesPrice.dailyChanges['Gold'] = commoditiesdata.dailyChanges[14]
     commoditiesPrice.dailyChanges['Electricity GER'] = commoditiesdata.dailyChanges[commoditiesdata.dailyChanges.length-1]
 
-    // console.log(commoditiesdata)
-    // console.log(commodities)
+  
+
+    commoditiesPrice.longerChanges['Crude Oil'] = [commoditiesdata.changes[1],commoditiesdata.changes[2]]
+    commoditiesPrice.longerChanges['Brent Oil'] = [commoditiesdata.changes[4],commoditiesdata.changes[5] ]
+    commoditiesPrice.longerChanges['Urals Oil'] = [commoditiesdata.changes[40],commoditiesdata.changes[41] ]
+    commoditiesPrice.longerChanges['Natural gas'] = [commoditiesdata.changes[7],commoditiesdata.changes[8] ]
+    commoditiesPrice.longerChanges['Coal'] = [commoditiesdata.changes[16],commoditiesdata.changes[17] ]
+    commoditiesPrice.longerChanges['TTF Gas'] = [commoditiesdata.changes[19],commoditiesdata.changes[20] ]
+    commoditiesPrice.longerChanges['Gold'] = [commoditiesdata.changes[43],commoditiesdata.changes[44] ]
+    commoditiesPrice.longerChanges['Electricity GER'] =  [commoditiesdata.changes[commoditiesdata.changes.length-2],commoditiesdata.changes[commoditiesdata.changes.length-1] ]
+
+   
+    console.log(commoditiesPrice)
 }catch(e){
     console.log(e)
 }
