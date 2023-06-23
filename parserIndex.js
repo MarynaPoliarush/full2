@@ -52,11 +52,11 @@ async function getIndex (){
     console.log(e)
 
 }
-    // console.log(stock)
+    console.log(stock)
     return stock
     
 }
 
-
+getIndex()
 
 module.exports = {getIndex}
